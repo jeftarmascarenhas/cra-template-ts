@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [todoValue, setTodoValue] = useState("");
+
+  const handleChange = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setTodoValue(value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,6 +27,20 @@ function App() {
           Learn React
         </a>
       </header>
+      <section>
+        <form>
+          <p>
+            <label htmlFor="input-todo">Todo</label>
+            <input
+              autoFocus
+              value={todoValue}
+              onChange={handleChange}
+              type="text"
+              id="input-todo"
+            />
+          </p>
+        </form>
+      </section>
     </div>
   );
 }
