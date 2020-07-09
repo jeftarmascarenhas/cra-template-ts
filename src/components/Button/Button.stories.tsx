@@ -5,10 +5,24 @@ import { withKnobs, text } from '@storybook/addon-knobs'
 import Button from '.'
 
 export default {
-  title: 'Button',
+  title: 'componentes/Button',
   decorators: [withKnobs],
 }
 
-export const ButtonStory = () => (
-  <Button onClick={action('Click')} title={text('title', 'Button')} />
+export const ButtonDefault = () => (
+  <Button onClick={action('Click')} title={text('title', 'Button')}>
+    <span>Text 1</span>
+  </Button>
+)
+
+export const ButtonCustom = () => (
+  <Button onClick={action('Click')} title={text('title', 'Button')}>
+    <span>TExto 2</span>
+  </Button>
+)
+
+export const ButtonDisabled = () => (
+  <Button onClick={action('Click')} disabled title={text('title', 'Button')}>
+    <span>TExto 2</span>
+  </Button>
 )
