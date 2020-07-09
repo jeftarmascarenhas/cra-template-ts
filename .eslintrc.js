@@ -78,6 +78,7 @@ module.exports = {
           '**/*.test.jsx',
           '**/*.test.ts',
           '**/*.test.tsx',
+          '**/*.stories.tsx',
           'src/tests/**/*',
         ],
       },

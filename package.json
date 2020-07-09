@@ -24,15 +24,17 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject",
     "cypress": "cypress open",
     "test:coverage": "yarn test -- --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write src/**/*.{ts,tsx,scss,css,json}",
-    "isready": "npm run format && npm run lint && npm run build"
+    "prettier": "prettier --write src/**/*.{ts,tsx,css,json}",
+    "format-code": "npm run prettier && npm run lint",
+    "isready": "npm run prettier && npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -81,6 +83,10 @@
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
     "react-docgen-typescript-loader": "^3.7.2",
+    "ts-jest": "21.1.1",
     "ts-loader": "^7.0.5"
+  },
+  "husky": {
+    "pre-commit": "npm run format-code"
   }
 }

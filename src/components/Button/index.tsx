@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 interface Props {
   onClick?: () => void
@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean
 }
 
-const Button: FunctionComponent<Props> = ({
+const Button: React.FC<Props> = ({
   onClick,
   title,
   children,
@@ -18,6 +18,12 @@ const Button: FunctionComponent<Props> = ({
       {children}
     </button>
   )
+}
+
+Button.defaultProps = {
+  onClick: (): void => {},
+  disabled: false,
+  title: '',
 }
 
 export default Button
